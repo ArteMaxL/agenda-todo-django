@@ -33,4 +33,41 @@ h1, h2, h3, h4 h5, h6 {
 
 /* Layout settings */
 
+nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 80px;
+    background-color: var(--color-primary);
+}
+
+nav ul {
+    list-style-type: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 90vw;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: white;
+    text-transform: uppercase;
+    font-family: var(--font-main);
+    padding: 10px;
+}
+
+nav ul li a:hover {
+    color: var(--color-text);
+}
+
+main {
+    display: flex;
+    width: 100vw;
+    margin: 50px;
+    justify-content: center;
+    align-items: flex-start;
+}
+
 /* End layout settings */
