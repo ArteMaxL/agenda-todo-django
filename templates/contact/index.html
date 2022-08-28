@@ -8,7 +8,7 @@
     <input type="text" class="search-bar" name="search" placeholder="Buscar contacto..." id="">
     <input type="submit" class="btn btn-search" value="Buscar">
 </form>
-<span class="aux-btns"><a href="{% url 'contact' %}">Ver todos</a><a href="#">Agregar</a></span>
+<span class="aux-btns"><a href="{% url 'contact' %}">Ver todos</a><a href="{% url 'contact_create' %}">Agregar</a></span>
 <ul class="list">
     {% for contact in contacts %}
         <li>{{ contact.name }}

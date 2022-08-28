@@ -171,6 +171,7 @@ main {
     padding: 10px;
     background-color: green;
     color: white;
+    list-style-type: none;
 }
 
 /* End layout settings */

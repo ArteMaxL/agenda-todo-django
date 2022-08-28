@@ -1,6 +1,6 @@
 {% extends 'layout/base.html' %}
 
-{% block 'title' %} Editar contacto {% endblock %}
+{% block 'title' %} Crear contacto {% endblock %}
 
 {% block 'styles' %}
     {% load static %}
@@ -18,7 +18,7 @@
     {% endif %}
 
     <span class="aux-btns-form"><a href="{% url 'contact' %}">Volver atrás</a></span>
-    <form action="{% url 'contact_edit' id=id %}" method="post">
+    <form action="{% url 'contact_create' %}" method="post">
         {% csrf_token %}
         <table>
             {{ form.as_table }}
