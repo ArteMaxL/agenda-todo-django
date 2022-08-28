@@ -1,6 +1,6 @@
 :root {
     --color-primary: #2ea3f2;
-    --color-text: #777;
+    --color-text: rgb(3, 3, 3);
     --font-main: Roboto-bold;
     --font-text: Roboto-regular;
 }
@@ -13,7 +13,7 @@
     box-sizing: border-box;
     font-family: var(--font-text);
     color: var(--color-text);
-    background-color: rgb(67, 66, 66);
+    background-color: #777;
 }
 
 @font-face {
