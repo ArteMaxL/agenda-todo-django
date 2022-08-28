@@ -13,6 +13,7 @@
     box-sizing: border-box;
     font-family: var(--font-text);
     color: var(--color-text);
+    background-color: rgb(67, 66, 66);
 }
 
 @font-face {
@@ -163,6 +164,13 @@ main {
 
 .aux-btns a:hover {
     color: green;
+}
+
+.alert-success {
+    width: 100%;
+    padding: 10px;
+    background-color: green;
+    color: white;
 }
 
 /* End layout settings */

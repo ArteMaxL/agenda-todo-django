@@ -2,6 +2,7 @@ from unicodedata import name
 from django.shortcuts import render
 from .models import Contact
 from .forms import ContactForm
+from django.contrib import messages
 
 def index(request):
     req_search = request.GET.get('search', '')
@@ -21,9 +22,20 @@ def view(request, id):
     return render(request, 'contact/detail.html', context)
 
 def edit(request, id):
-    if request.method == 'GET':
-        contact = Contact.objects.get(id=id)
-        form = ContactForm(instance= contact)
-        context = {'form': form}
+    contact = Contact.objects.get(id=id)
 
-        return render(request, 'contact/create.html', context)
+    if request.method == 'GET':
+        form = ContactForm(instance= contact)
+        context = {'form': form, 'id': id}
+
+        return render(request, 'contact/edit.html', context)
+
+    if request.method == 'POST':
+        form = ContactForm(request.POST, instance= contact)
+        context = {'form': form, 'id': id}
+
+        if form.is_valid():
+            form.save()
+        
+        messages.success(request, 'Contacto actualizado.')
+        return render(request, 'contact/edit.html', context)

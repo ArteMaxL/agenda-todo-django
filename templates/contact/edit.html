@@ -8,7 +8,18 @@
 {% endblock %}
 
 {% block 'content' %}
-    <form action="">
+
+    {% if messages %}
+    <ul class="messages">
+        {% for message in messages %}
+        <li{% if message.tags %} class="alert-success"{% endif %}>{{ message }}</li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+
+    <span class="aux-btns-form"><a href="{% url 'contact' %}">Volver atrás</a></span>
+    <form action="{% url 'contact_edit' id=id %}" method="post">
+        {% csrf_token %}
         <table>
             {{ form.as_table }}
         </table>
@@ -16,4 +27,5 @@
             <input type="submit" value="Enviar" class="btn btn-send" />
         </div>
     </form>
+
 {% endblock %}

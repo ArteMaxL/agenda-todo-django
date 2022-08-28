@@ -21,3 +21,19 @@ input {
     display: flex;
     justify-content: flex-end;
 }
+
+.aux-btns-form {
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    margin: 10px;
+}
+
+.aux-btns-form a {
+    padding-right: 10px;
+    text-decoration: none;
+}
+
+.aux-btns-form a:hover {
+    color: green;
+}
