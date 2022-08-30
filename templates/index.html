@@ -3,5 +3,9 @@
 {% block 'title' %} Inicio {% endblock %}
 
 {% block 'content' %}
-    <h1>Bienvenido a tu gestor personal.</h1>
+<h1>Bienvenido a tu gestor personal.</h1>
+<div class="cards">
+    <a href="{% url 'contact' %}" class="card">CONTACTOS</a>
+    <a href="{% url 'todo' %}" class="card">TAREAS</a>
+</div>
 {% endblock %}
