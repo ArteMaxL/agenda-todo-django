@@ -1,16 +1,15 @@
-from unicodedata import name
+from contextlib import nullcontext
 from django.shortcuts import render, redirect
 from .models import Contact
 from .forms import ContactForm
 from django.contrib import messages
 
-def index(request):
-    req_search = request.GET.get('search', '')
-
-    if req_search:
-        contacts = Contact.objects.filter(name__contains=req_search)
+def index(request, letter = nullcontext):
+    if letter != nullcontext:
+        contacts = Contact.objects.filter(name__istartswith=letter)
     else:
-        contacts = Contact.objects.all()
+        req_search = request.GET.get('search', '')
+        contacts = Contact.objects.filter(name__contains=req_search)
 
     context = {'contacts': contacts}
 

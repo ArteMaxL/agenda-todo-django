@@ -5,15 +5,17 @@
 
 {% block 'content' %}
 <h1>Contactos</h1>
-<form class="search" method="get" action="{% url 'contact' %}">
-    <input type="text" class="search-bar" name="search" placeholder="Buscar contacto..." id="">
-    <input type="submit" class="btn btn-search" value="Buscar">
-</form>
-<span class="aux-btns"><a href="{% url 'contact' %}">Ver todos</a><a href="{% url 'contact_create' %}">Agregar</a></span>
+
+    {% include 'contact/partials/search.html' %}
+
+    {% include 'contact/partials/by_initial.html' %}
+
+<span class="aux-btns"><a href="{% url 'contact' %}">Ver todos</a><a
+        href="{% url 'contact_create' %}">Agregar</a></span>
 <ul class="list">
     {% for contact in contacts %}
         <li>{{ contact.name }}
-             <span>
+            <span>
                 <a href="{% url 'contact_view' id=contact.id %}" class="btn btn-detail">Ver</a>
                 <a href="{% url 'contact_edit' id=contact.id %}" class="btn btn-edit">Editar</a>
                 <a href="{% url 'contact_delete' id=contact.id %}" class="btn btn-delete">Borrar</a>
